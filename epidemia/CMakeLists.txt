@@ -29,7 +29,7 @@ add_test(NAME near_infect_tests COMMAND run_near_infect_tests)
 add_executable(run_time_function_tests time_function.test.cpp run.test.cpp)
 add_test(NAME time_function_tests COMMAND run_time_function_tests)
 
-add_executable(run_global_tests  run.test.cpp Board.test.cpp evolve_step.test.cpp evolve.cpp stepq.cpp stepnq.cpp near_infect.test.cpp near_infect.cpp time_function.test.cpp)
+add_executable(run_global_tests  run.test.cpp Board.test.cpp evolve_step.test.cpp evolve.cpp stepq.cpp stepnq.cpp near_infect.test.cpp near_infect.cpp time_function.test.cpp input.test.cpp input.cpp)
 add_test(NAME global_tests COMMAND run_global_tests)
 
 
