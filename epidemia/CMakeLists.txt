@@ -5,6 +5,9 @@ cmake_minimum_required(VERSION 3.0)
 project(project_epidemic)
 
 add_executable(project_epidemic main.cpp near_infect.cpp evolve.cpp stepq.cpp stepnq.cpp input.cpp) 
+set_target_properties(project_epidemic PROPERTIES COMPILE_FLAGS "-Wall -Wextra")
+target_link_libraries(project_epidemic -fsanitize=address)
+
 
 #Build the tests
 

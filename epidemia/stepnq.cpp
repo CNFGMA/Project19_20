@@ -7,7 +7,6 @@ void stepnq(Board &curr) {
   std::mt19937 gen{dev()};
   std::uniform_int_distribution<int> dis(-1, 1);
 
-  auto all = curr.count_all();
   int const N = curr.SizeRow();
   int const M = curr.SizeColumn(); // without quarantine
   for (int i = 1; i != N + 1; ++i) {
