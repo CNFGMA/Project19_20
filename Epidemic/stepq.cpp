@@ -2,13 +2,12 @@
 #include "step.hpp"
 #include "time_function.hpp"
 #include <random>
+// with quarantine
 
 // Function for the movements: every cell has a certain probability to move.
 // Every cell can move only towards "Off" cells. The movements consist of
 // swapping the initial cell with the final cell.
 
-// isquar stands for "is quarantine" and it is taken from the input file. It is
-// used to evolve the epidemic with or without quarantine
 void stepq(Board &curr) {
   std::random_device dev{};
   std::mt19937 gen{dev()};
@@ -18,7 +17,6 @@ void stepq(Board &curr) {
   int const N = curr.SizeRow();
   int const M = curr.SizeColumn();
 
-  // with quarantine
   for (int i = 1; i != N + 1; ++i) {
     for (int j = 1; j != M + 1; ++j) {
       auto n_inf = near_infect(curr, i, j);

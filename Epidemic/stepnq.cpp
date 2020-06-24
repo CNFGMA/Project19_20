@@ -1,6 +1,11 @@
 #include "near_infect.hpp"
 #include "step.hpp"
 #include <random>
+// without quarantine
+
+// Function for the movements: every cell has a certain probability to move.
+// Every cell can move only towards "Off" cells. The movements consist of
+// swapping the initial cell with the final cell.
 
 void stepnq(Board &curr) {
   std::random_device dev{};
@@ -8,7 +13,7 @@ void stepnq(Board &curr) {
   std::uniform_int_distribution<int> dis(-1, 1);
 
   int const N = curr.SizeRow();
-  int const M = curr.SizeColumn(); // without quarantine
+  int const M = curr.SizeColumn();
   for (int i = 1; i != N + 1; ++i) {
     for (int j = 1; j != M + 1; ++j) {
       auto const &next = curr;
