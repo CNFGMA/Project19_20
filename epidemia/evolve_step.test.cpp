@@ -2,7 +2,8 @@
 #include "evolve.hpp"
 #include "step.hpp"
 
-TEST_CASE("Testing the evolution of infection with cells movement with quarantine") {
+TEST_CASE(
+    "Testing the evolution of infection with cells movement with quarantine") {
   Board test_board(10, 20);
   test_board(1, 3) = State::Susceptible;
   test_board(2, 2) = State::Susceptible;
@@ -29,12 +30,13 @@ TEST_CASE("Testing the evolution of infection with cells movement with quarantin
     end = test_board.count_Infected();
     CHECK(test_board.count_all() == total_cells);
   }
-  CHECK(test_board.count_Recovered() + test_board.count_Susceptible() == test_board.count_all());
+  CHECK(test_board.count_Recovered() + test_board.count_Susceptible() ==
+        test_board.count_all());
   CHECK(test_board.count_all() == total_cells);
 }
 
-
-TEST_CASE("Testing the evolution of infection with cells movement without quarantine") {
+TEST_CASE("Testing the evolution of infection with cells movement without "
+          "quarantine") {
   Board test_board(10, 20);
   test_board(1, 3) = State::Susceptible;
   test_board(2, 2) = State::Susceptible;
@@ -61,6 +63,9 @@ TEST_CASE("Testing the evolution of infection with cells movement without quaran
     end = test_board.count_Infected();
     CHECK(test_board.count_all() == total_cells);
   }
-  CHECK(test_board.count_Recovered() + test_board.count_Susceptible() == test_board.count_all());
+  CHECK(test_board.count_Recovered() + test_board.count_Susceptible() ==
+        test_board.count_all());
   CHECK(test_board.count_all() == total_cells);
 }
+
+

@@ -34,6 +34,9 @@ TEST_CASE("testing the evolution of the board") {
     end = test_board.count_Infected();
     CHECK(test_board.count_all() == 3);
   }
-  CHECK(test_board.count_Recovered() + test_board.count_Susceptible() == test_board.count_all());
+  CHECK(test_board.count_Recovered() + test_board.count_Susceptible() ==
+        test_board.count_all());
   CHECK(test_board.count_all() == 3);
 }
+
+

@@ -3,13 +3,13 @@
 #include "time_function.hpp"
 #include <random>
 
-// This function is used to update the situation of the infections with the new Infected, Susceptibles and Recovered cells.
+// This function is used to update the situation of the infections with the new
+// Infected, Susceptibles and Recovered cells.
 
 Board evolve(Board const &curr, int t) // t indicates the current iteration
 {
   std::mt19937 gen;
-  std::normal_distribution<double> dist(
-      1.5, 0.5); // Random factor added to the epidemic evolution
+  std::normal_distribution<double> dist(1.5, 0.5); // Random factor added to the epidemic evolution
   std::normal_distribution<double> dist1(1., 0.5);
   int const N = curr.SizeRow();
   int const M = curr.SizeColumn();
@@ -18,8 +18,7 @@ Board evolve(Board const &curr, int t) // t indicates the current iteration
     for (int j = 1; j != M + 1; j++) {
       if (curr(i, j) == State::Infected) {
         auto gamma = gamma_t(t);
-        if (gamma * dist(gen) >
-            0.9) // Probability that an Infected cell becomes Recovered
+        if (gamma * dist(gen) > 0.9) // Probability that an Infected cell becomes Recovered
         {
           next(i, j) = State::Recovered;
         }
